@@ -33,14 +33,6 @@ public class CategoriaResource {
 		Categoria obj = categoriaService.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
-
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<CategoriaDTO>> findAll(){
-		List<Categoria> categorias = categoriaService.findAll();
-		List<CategoriaDTO> categoriasDTO = categorias.stream().map(
-				obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
-		return ResponseEntity.ok().body(categoriasDTO);
-	}
 	
 	public void save(List<Categoria> categorias) {
 		categoriaService.salvar(categorias);
@@ -69,6 +61,14 @@ public class CategoriaResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<CategoriaDTO>> findAll(){
+		List<Categoria> categorias = categoriaService.findAll();
+		List<CategoriaDTO> categoriasDTO = categorias.stream().map(
+				obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(categoriasDTO);
+	}
+	
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public ResponseEntity<Page<CategoriaDTO>> findPage(
 			@RequestParam(value="page", defaultValue="0") Integer page, 
