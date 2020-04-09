@@ -25,6 +25,11 @@ public class CategoriaService {
 	public void salvar(List<Categoria> categorias) {
 		categoriaRepository.saveAll(categorias);
 	}
+
+	public Categoria insert(Categoria obj) {
+		obj.setId(null);
+		return categoriaRepository.save(obj);
+	}
 	
 	
 }
