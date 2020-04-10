@@ -2,8 +2,6 @@ package com.nelioalves.cursomc.dto;
 
 import java.io.Serializable;
 
-import com.nelioalves.cursomc.domain.enums.TipoCliente;
-
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -11,7 +9,7 @@ public class ClienteNewDTO implements Serializable {
 	private String nome;
 	private String email;
 	private String cpfOuCnpj;
-	private TipoCliente tipo;
+	private Integer tipo;
 	
 	// Endereco
 	private String logradouro;
@@ -20,34 +18,15 @@ public class ClienteNewDTO implements Serializable {
 	private String bairro;
 	private String cep;
 	
-	// Cidade
-	private Integer cidadeId;
-	
 	// Telefones
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
 	
-	public ClienteNewDTO() {}
+	// Cidade
+	private Integer cidadeId;
 	
-	public ClienteNewDTO(String nome, String email, String cpfOuCnpj, TipoCliente tipo, String logradouro,
-			String numero, String complemento, String bairro, String cep, Integer cidadeId, String nomeEstado,
-			String telefone1, String telefone2, String telefone3) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo = tipo;
-		this.logradouro = logradouro;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cep = cep;
-		this.cidadeId = cidadeId;
-		this.telefone1 = telefone1;
-		this.telefone2 = telefone2;
-		this.telefone3 = telefone3;
-	}
+	public ClienteNewDTO() {}
 
 	public String getNome() {
 		return nome;
@@ -73,11 +52,11 @@ public class ClienteNewDTO implements Serializable {
 		this.cpfOuCnpj = cpfOuCnpj;
 	}
 	
-	public TipoCliente getTipo() {
+	public Integer getTipo() {
 		return tipo;
 	}
 	
-	public void setTipo(TipoCliente tipo) {
+	public void setTipo(Integer tipo) {
 		this.tipo = tipo;
 	}
 	
