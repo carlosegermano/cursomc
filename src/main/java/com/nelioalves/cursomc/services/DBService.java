@@ -22,6 +22,7 @@ import com.nelioalves.cursomc.domain.Produto;
 import com.nelioalves.cursomc.domain.enums.EstadoPagamento;
 import com.nelioalves.cursomc.domain.enums.Perfil;
 import com.nelioalves.cursomc.domain.enums.TipoCliente;
+import com.nelioalves.cursomc.repository.CategoriaRepository;
 import com.nelioalves.cursomc.repository.CidadeRepository;
 import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.repository.EnderecoRepository;
@@ -30,7 +31,6 @@ import com.nelioalves.cursomc.repository.ItemPedidoRepository;
 import com.nelioalves.cursomc.repository.PagamentoRepository;
 import com.nelioalves.cursomc.repository.PedidoRepository;
 import com.nelioalves.cursomc.repository.ProdutoRepository;
-import com.nelioalves.cursomc.resources.CategoriaResource;
 
 @Service
 public class DBService {
@@ -39,7 +39,7 @@ public class DBService {
 	private BCryptPasswordEncoder pe;
 	
 	@Autowired
-	private CategoriaResource categoriaResource;
+	private CategoriaRepository categoriaRepository;
 	
 	@Autowired
 	private ProdutoRepository produtoRepository;
@@ -107,7 +107,7 @@ public class DBService {
 		p10.getCategorias().addAll(Arrays.asList(cat6));
 		p11.getCategorias().addAll(Arrays.asList(cat7));
 		
-		categoriaResource.save(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7));
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 		
 		Estado est1 = new Estado(null, "Minas Gerais");
