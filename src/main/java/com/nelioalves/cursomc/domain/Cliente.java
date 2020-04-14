@@ -126,7 +126,7 @@ public class Cliente implements Serializable {
 		this.senha = senha;
 	}
 	
-	public Set<Perfil> getPerfil(){
+	public Set<Perfil> getPerfis(){
 		return perfis.stream().map(p -> Perfil.ToEnum(p)).collect(Collectors.toSet());
 	}
 	
