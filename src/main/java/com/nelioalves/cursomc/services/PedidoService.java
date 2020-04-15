@@ -84,8 +84,9 @@ public class PedidoService {
 		
 		if (user == null) throw new AuthorizationException("Acesso negado!");
 		
-		Cliente cliente = clienteService.find(user.getId());
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		Cliente cliente = clienteService.find(user.getId());
+
 		return pedidoRepository.findByCliente(cliente, pageRequest);
 	}
 }
