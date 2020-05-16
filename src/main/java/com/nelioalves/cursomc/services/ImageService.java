@@ -19,7 +19,7 @@ import com.nelioalves.cursomc.services.exceptions.FileException;
 @Service
 public class ImageService {
 
-	public BufferedImage getJPGFromFile(MultipartFile uploadFile) {
+	public BufferedImage getJpgImageFromFile(MultipartFile uploadFile) {
 		String ext = FilenameUtils.getExtension(uploadFile.getOriginalFilename());
 		if (!"png".equals(ext) && !"jpg".equals(ext)) {
 			throw new FileException("São permitidas apenas imagens PNG e JPG");
